@@ -15,7 +15,7 @@ The `pointcloud_preprocessor` is a package that includes the following filters:
 Detail description of each filter's algorithm is in the following links.
 
 | Filter Name                   | Description                                                                        | Detail                                        |
-|-------------------------------|------------------------------------------------------------------------------------|-----------------------------------------------|
+| ----------------------------- | ---------------------------------------------------------------------------------- | --------------------------------------------- |
 | concatenate_data              | subscribe multiple pointclouds and concatenate them into a pointcloud              | [link](docs/concatenate-data.md)              |
 | crop_box_filter               | remove points within a given box                                                   | [link](docs/crop-box-filter.md)               |
 | distortion_corrector          | compensate pointcloud distortion caused by ego vehicle's movement during 1 scan    | [link](docs/distortion-corrector.md)          |
@@ -31,14 +31,14 @@ Detail description of each filter's algorithm is in the following links.
 ### Input
 
 | Name              | Type                            | Description       |
-|-------------------|---------------------------------|-------------------|
+| ----------------- | ------------------------------- | ----------------- |
 | `~/input/points`  | `sensor_msgs::msg::PointCloud2` | reference points  |
 | `~/input/indices` | `pcl_msgs::msg::Indices`        | reference indices |
 
 ### Output
 
 | Name              | Type                            | Description     |
-|-------------------|---------------------------------|-----------------|
+| ----------------- | ------------------------------- | --------------- |
 | `~/output/points` | `sensor_msgs::msg::PointCloud2` | filtered points |
 
 ## Parameters
@@ -46,7 +46,7 @@ Detail description of each filter's algorithm is in the following links.
 ### Node Parameters
 
 | Name               | Type   | Default Value | Description                           |
-|--------------------|--------|---------------|---------------------------------------|
+| ------------------ | ------ | ------------- | ------------------------------------- |
 | `input_frame`      | string | " "           | input frame id                        |
 | `output_frame`     | string | " "           | output frame id                       |
 | `max_queue_size`   | int    | 5             | max queue size of input/output topics |
@@ -87,11 +87,11 @@ output to the node's output. This data is crucial for assessing the pipeline's h
 When running Autoware, you can monitor the accumulated times for each node in the pipeline by subscribing to the
 following ROS 2 topics:
 
-* `/sensing/lidar/LidarX/crop_box_filter_self/debug/accumulated_time_ms`
-* `/sensing/lidar/LidarX/crop_box_filter_mirror/debug/accumulated_time_ms`
-* `/sensing/lidar/LidarX/distortion_corrector/debug/accumulated_time_ms`
-* `/sensing/lidar/LidarX/ring_outlier_filter/debug/accumulated_time_ms`
-* `/sensing/lidar/concatenate_data_synchronizer/debug/accumulated_time_ms/sensing/lidar/LidarX/pointcloud`
+- `/sensing/lidar/LidarX/crop_box_filter_self/debug/accumulated_time_ms`
+- `/sensing/lidar/LidarX/crop_box_filter_mirror/debug/accumulated_time_ms`
+- `/sensing/lidar/LidarX/distortion_corrector/debug/accumulated_time_ms`
+- `/sensing/lidar/LidarX/ring_outlier_filter/debug/accumulated_time_ms`
+- `/sensing/lidar/concatenate_data_synchronizer/debug/accumulated_time_ms/sensing/lidar/LidarX/pointcloud`
 
 These topics provide the accumulated processing times, giving insights into the delays at various stages of the pipeline
 from the sensor output of LidarX to each subsequent node.
